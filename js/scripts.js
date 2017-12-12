@@ -9,16 +9,14 @@ function Cost(s, city, state) {
   this.city = city;
   this.state = state;
 }
-alert();
+
 $(document).ready(function () {
   $("form#new-ticket").submit(function(event){
     event.preventDefault();
-    debugger
     var age = $("#new-last-name").val();
     var time = $("input:checkbox[name=time]:checked").val();
     var movie = $("#movieInput").val();
   })
-//alert();
 });
 
 
