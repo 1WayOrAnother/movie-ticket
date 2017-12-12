@@ -1,25 +1,32 @@
-function showing(movie, time, age) {
+function Showing(movie, time, age) {
   this.movie = movie;
   this.time = time;
   this.age = age;
+  this.cost = [];
 }
 
-function Cost(s, city, state) {
-  this.street = street;
-  this.city = city;
-  this.state = state;
-}
-
-//User interface face
+//User interface logic
 $(document).ready(function () {
   $("form#new-ticket").submit(function(event){
     event.preventDefault();
+
     var inputMovie = $("#movieInput").val();
     var inputTime = $("input:checkbox[name=time]:checked").val();
     var inputAge = $("#ageInput").val();
+
     var newShowing = new Showing(inputMovie, inputTime, inputAge);
-  })
+
+    $("ul#show-ticket").append("<li><span class='info'>"+ newShowing.movie + "</span></li>");
+    $("#show-ticket").toggle();
+    $("#show-location h2").text(newShowing.movie);
+    $(".show-title").text(newShowing.movie);
+    $(".show-time").text(newShowing.time);
+    $(".show-age").text(newShowing.age);
+    $(".show-cost").text(newShowing.cost);
+  });
 });
+
+
 
 
 
