@@ -1,7 +1,7 @@
-function tickets(movie, time, age) {
+function showing(movie, time, age) {
   this.movie = movie;
   this.time = time;
-  this.age = [];
+  this.age = age;
 }
 
 function Cost(s, city, state) {
@@ -10,12 +10,14 @@ function Cost(s, city, state) {
   this.state = state;
 }
 
+//User interface face
 $(document).ready(function () {
   $("form#new-ticket").submit(function(event){
     event.preventDefault();
-    var age = $("#new-last-name").val();
-    var time = $("input:checkbox[name=time]:checked").val();
-    var movie = $("#movieInput").val();
+    var inputMovie = $("#movieInput").val();
+    var inputTime = $("input:checkbox[name=time]:checked").val();
+    var inputAge = $("#ageInput").val();
+    var newShowing = new Showing(inputMovie, inputTime, inputAge);
   })
 });
 
@@ -48,13 +50,7 @@ $(document).ready(function () {
 //   return this.firstName + " " + this.lastName;
 // }
 // // user interface logic
-// $(document).ready(function(){
-//   $("form#new-contact").submit(function(event){
-//     event.preventDefault();
-//
-//     var inputtedFirstName = $("input#new-first-name").val();
-//     var inputtedLastName = $("input#new-last-name").val();
-//     var newContact = new Contact(inputtedFirstName, inputtedLastName);
+
 //     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 //     $(".contact").last().click(function() {
 //     $("#show-contact").toggle();
